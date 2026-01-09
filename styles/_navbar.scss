@@ -6,12 +6,14 @@
     color: $ash-gray;
     text-align: center;
     align-items: center;
+    position: relative;
 
     .header-logo {
         display: flex;
-        align-items: center; // vertically center image + text
-        gap: 0.75rem; // spacing between logo and name
+        align-items: center;
+        gap: 0.75rem;
         text-decoration: none;
+        z-index: 1001;
 
         img {
             height: 70px;
@@ -25,10 +27,9 @@
             font-size: 1.4rem;
             color: $ash-gray;
             letter-spacing: 0.5px;
-            white-space: nowrap; // prevent wrapping
+            white-space: nowrap;
         }
     }
-
 
     .nav-items {
         display: flex;
@@ -46,6 +47,104 @@
             color: $ash-gray;
             text-align: center;
 
+            &:hover {
+                color: $mid-gray;
+            }
         }
+    }
+}
+
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: $ash-gray;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0.5rem;
+    
+    &:hover {
+        color: $mid-gray;
+    }
+}
+
+// Mobile styles
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        
+        // Hide both nav menus by default
+        .nav-items {
+            display: none;
+        }
+        
+        // When mobile menu is active
+        &.mobile-active {
+            // Both menus appear in a stacked container
+            .nav-items {
+                width: 100%;
+                background-color: $dark-blue;
+                padding: 1rem 2rem;
+                z-index: 1000;
+                
+                li a {
+                    padding: 0.75rem;
+                    margin: 0;
+                    border-radius: 4px;
+                    
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.1);
+                    }
+                }
+            }
+            
+            // First nav-items (navigation links) - vertical
+            .nav-items:nth-of-type(1) {
+                display: flex;
+                flex-direction: column;
+                order: 1;
+                gap: 0.5rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding-bottom: 1.5rem;
+                
+                li {
+                    width: 100%;
+                    text-align: center;
+                    
+                    a {
+                        display: block;
+                    }
+                }
+            }
+
+            // Second nav-items (social icons) - horizontal
+            .nav-items:nth-of-type(2) {
+                display: flex;
+                flex-direction: row;
+                order: 2;
+                justify-content: center;
+                gap: 2rem;
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+                
+                li {
+                    width: auto;
+                    
+                    a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 0.5rem;
+                        font-size: 1.5rem;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .hamburger {
+        display: block;
     }
 }
