@@ -1,0 +1,260 @@
+.experiences-section {
+    padding: 4rem 3rem;
+    background: linear-gradient(to bottom, #f8f9fa 0%, #f0f4f8 100%);
+    
+    .sub-title {
+        font-family: $main-font;
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        color: $dark-blue;
+        text-align: center;
+    }
+    
+    .experiences-container {
+        max-width: 900px;
+        margin: 0 auto;
+        font-family: $text-font;
+    }
+    
+    .timeline {
+        position: relative;
+        padding: 2rem 0;
+        
+        // Vertical line
+        &::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(
+                to bottom,
+                $dark-blue 0%,
+                rgba(25, 78, 132, 0.3) 100%
+            );
+        }
+    }
+    
+    .timeline-item {
+        position: relative;
+        padding-left: 100px;
+        margin-bottom: 3rem;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 42px;
+            height: 42px;
+            background: white;
+            border: 3px solid $dark-blue;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: all 0.3s ease;
+            
+            i {
+                font-size: 1.1rem;
+                color: $dark-blue;
+            }
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid $dark-blue;
+            
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            }
+            
+            .category-badge {
+                display: inline-block;
+                padding: 0.4rem 1rem;
+                background: rgba(25, 78, 132, 0.1);
+                color: $dark-blue;
+                border-radius: 20px;
+                font-size: 0.75rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-bottom: 0.75rem;
+                
+                &.certificate {
+                    background: rgba(16, 185, 129, 0.1);
+                    color: #059669;
+                }
+                
+                &.competition {
+                    background: rgba(245, 158, 11, 0.1);
+                    color: #D97706;
+                }
+                &.club {
+                    background: rgba(117, 16, 185, 0.1);
+                    color: #680596;
+                }
+                
+                &.coaching {
+                    background: rgba(245, 11, 245, 0.1);
+                    color: #d906ce;
+                }
+            }
+            
+            h3 {
+                font-family: $main-font;
+                font-size: 1.4rem;
+                color: $dark-blue;
+                margin-bottom: 0.5rem;
+            }
+            
+            .date {
+                display: block;
+                font-size: 0.9rem;
+                color: #6b7280;
+                margin-bottom: 1rem;
+                font-weight: 500;
+            }
+            
+            .description {
+                color: #4b5563;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
+            
+            .achievement-tags {
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                margin-bottom: 1rem;
+                
+                span {
+                    padding: 0.3rem 0.75rem;
+                    background: rgba(25, 78, 132, 0.1);
+                    color: $dark-blue;
+                    border-radius: 6px;
+                    font-size: 0.8rem;
+                    font-weight: 500;
+                }
+            }
+            
+            .view-certificate {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.6rem 1.2rem;
+                background: $dark-blue;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 0.9rem;
+                transition: all 0.3s ease;
+                
+                &:hover {
+                    background: darken($dark-blue, 10%);
+                    transform: translateY(-2px);
+                }
+            }
+        }
+        
+        // Different colors for different categories
+        &.competition {
+            .timeline-icon {
+                border-color: #F59E0B;
+                
+                i {
+                    color: #F59E0B;
+                }
+            }
+            
+            .timeline-content {
+                border-left-color: #F59E0B;
+            }
+        }
+        
+        &.certificate {
+            .timeline-icon {
+                border-color: #059669;
+                
+                i {
+                    color: #059669;
+                }
+            }
+            
+            .timeline-content {
+                border-left-color: #059669;
+            }
+        }
+        
+        &.coaching {
+            .timeline-icon {
+                border-color: #eb58b2;
+                
+                i {
+                    color: #eb58b2;
+                }
+            }
+            
+            .timeline-content {
+                border-left-color: #eb58b2;
+            }
+        }
+
+        &.club {
+            .timeline-icon {
+                border-color: #8B5CF6;
+                
+                i {
+                    color: #8B5CF6;
+                }
+            }
+            
+            .timeline-content {
+                border-left-color: #8B5CF6;
+            }
+        }
+    }
+    
+    // Responsive
+    @media (max-width: 768px) {
+        padding: 3rem 1.5rem;
+        
+        .timeline {
+            &::before {
+                left: 20px;
+            }
+        }
+        
+        .timeline-item {
+            padding-left: 60px;
+            
+            .timeline-icon {
+                left: 0;
+                width: 38px;
+                height: 38px;
+                
+                i {
+                    font-size: 1rem;
+                }
+            }
+            
+            .timeline-content {
+                padding: 1.25rem 1.5rem;
+                
+                h3 {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}

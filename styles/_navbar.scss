@@ -1,0 +1,51 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: $dark-blue;
+    color: $ash-gray;
+    text-align: center;
+    align-items: center;
+
+    .header-logo {
+        display: flex;
+        align-items: center; // vertically center image + text
+        gap: 0.75rem; // spacing between logo and name
+        text-decoration: none;
+
+        img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .website-name {
+            font-family: $main-font;
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: $ash-gray;
+            letter-spacing: 0.5px;
+            white-space: nowrap; // prevent wrapping
+        }
+    }
+
+
+    .nav-items {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        gap: 1rem;
+        padding: 0;
+        font-family: $main-font;
+        text-align: center;
+
+        li a {
+            text-decoration: none;
+            transition: 950ms;
+            margin-left: 1rem;
+            color: $ash-gray;
+            text-align: center;
+
+        }
+    }
+}

@@ -1,0 +1,122 @@
+.hero {
+    display: flex;
+    justify-content: space-between;
+    height: 75vh;
+    min-height: 500px;
+    align-items: center;
+    position: relative;
+    padding: 3rem;
+    background: #000000;
+    overflow: hidden;
+    
+    // More visible geometric pattern
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            radial-gradient(circle at 15% 50%, rgba(25, 78, 132, 0.15) 0%, transparent 25%),
+            radial-gradient(circle at 85% 30%, rgba(25, 78, 132, 0.1) 0%, transparent 25%);
+        z-index: 1;
+    }
+    
+    // Animated gradient orbs - more visible
+    &::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(circle, rgba(25, 78, 132, 0.2) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 1;
+        animation: float 8s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+        0%, 100% {
+            transform: translate(0, 0) scale(1);
+        }
+        50% {
+            transform: translate(-30px, 30px) scale(1.1);
+        }
+    }
+    
+    .text-content {
+        color: $ash-gray;
+        z-index: 2;
+        max-width: 50%;
+        font-family: $main-font;
+        position: relative;
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-family: $text-font;
+            font-size: clamp(2rem, 2vw, 2.3rem);
+            margin-top: 0.8rem;
+            line-height: 1.6;
+        }
+        .button-container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+        button {
+            font-family: $main-font;
+            font-size: 1.2rem;
+            padding: 12px;
+            margin-top: 20px;
+            cursor: pointer;
+            background: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+
+            a {
+                color: $dark-blue;
+                font-weight: 520;
+                font-size: 1.2rem;
+                text-decoration: none;
+
+            }
+            
+            
+
+            &:hover {
+                background: white;
+                color: $dark-blue;
+                transform: translateY(-3px);
+                box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+            }
+        }
+        span {
+            color: rgb(211, 214, 4);
+        }
+    }
+
+    .image-content {
+        position: absolute; 
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+
+        img {
+            max-width: 600px;
+            width: 45vw;
+            height: auto;
+            display: block;
+            filter: drop-shadow(-10px 10px 30px rgba(0, 0, 0, 0.5));
+        }
+    }
+}
