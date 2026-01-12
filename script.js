@@ -88,13 +88,18 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe elements for fade-in animation
-const animateElements = document.querySelectorAll('.skills > div, .project-featured, .project-card, .timeline-item');
+// Observe elements for fade-in animation (excluding images)
+const animateElements = document.querySelectorAll('.skills > div, .timeline-item');
 animateElements.forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(30px)';
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
+});
+
+// Make sure all images are visible
+document.querySelectorAll('img').forEach(img => {
+  img.style.opacity = '1';
 });
 
  
