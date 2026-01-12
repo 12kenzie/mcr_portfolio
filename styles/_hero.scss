@@ -131,14 +131,12 @@
         bottom: 0;
         z-index: 3;
         transition: transform 0.1s ease;
-        will-change: transform;
 
         img {
             max-width: 600px;
             width: 45vw;
             height: auto;
             display: block;
-            filter: drop-shadow(-10px 10px 30px rgba(0, 0, 0, 0.5));
         }
     }
 }
