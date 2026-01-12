@@ -15,25 +15,27 @@
     overflow-x: auto;
     padding: 2rem 0;
     scroll-snap-type: x mandatory;
-    
+
     // Better scrollbar styling
     &::-webkit-scrollbar {
         height: 10px;
     }
+
     &::-webkit-scrollbar-track {
         background: rgba($dark-blue, 0.1);
         border-radius: 10px;
     }
+
     &::-webkit-scrollbar-thumb {
         background: $dark-blue;
         border-radius: 10px;
-        
+
         &:hover {
             background: darken($dark-blue, 10%);
         }
     }
 
-    > div {
+    >div {
         scroll-snap-align: start;
         padding: 2rem 1.5rem;
         text-align: center;
@@ -42,12 +44,34 @@
         border: 2px solid transparent;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         transition: all 0.3s ease;
-        
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.1),
+                    transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        &:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translateX(100%);
+        }
+
         &:hover {
             transform: translateY(-8px);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
             border-color: rgba($dark-blue, 0.2);
-            
+
             i {
                 transform: scale(1.1);
             }
@@ -57,8 +81,12 @@
             font-size: 5rem;
             color: $dark-blue;
             margin-bottom: 1.5rem;
-            display: block;
-            transition: transform 0.3s ease;
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        &:hover i {
+            transform: scale(1.1) rotate(5deg);
         }
 
         h3 {
@@ -73,21 +101,21 @@
             font-size: 1.1rem;
             margin-top: 0.75rem;
             letter-spacing: 2px;
-            
+
             // Better star colors - choose one:
-            
+
             // Option 1: Gold/Amber (Classic, professional)
             color: #F59E0B; // or #FFA500 or #FFB800
-            
+
             // Option 2: Blue gradient (Matches your theme)
             // color: #3B82F6;
-            
+
             // Option 3: Teal/Cyan (Modern, tech-feel)
             // color: #06B6D4;
-            
+
             // Option 4: Orange (Energetic, stands out)
             // color: #FF6B35;
-            
+
             // Add subtle glow effect
             text-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
         }
@@ -108,7 +136,7 @@
     .skills {
         padding-left: 1rem;
         padding-right: 1rem;
-        
+
         // Add scroll indicators
         &::after {
             content: '→';
@@ -120,9 +148,16 @@
             animation: slideHint 2s ease-in-out infinite;
         }
     }
-    
+
     @keyframes slideHint {
-        0%, 100% { transform: translateX(0); }
-        50% { transform: translateX(10px); }
+
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(10px);
+        }
     }
 }

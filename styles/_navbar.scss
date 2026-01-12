@@ -6,7 +6,16 @@
     color: $ash-gray;
     text-align: center;
     align-items: center;
-    position: relative;
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &.mobile-active {
+        .nav-items {
+        animation: slideDown 0.3s ease;
+        }
+    }
 
     .header-logo {
         display: flex;
@@ -52,6 +61,17 @@
             }
         }
     }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hamburger {

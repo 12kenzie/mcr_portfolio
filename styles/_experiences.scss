@@ -258,3 +258,38 @@
         }
     }
 }
+
+.experiences-section {
+  .timeline-item {
+    position: relative;
+    
+    // Animated timeline dot on hover
+    .timeline-icon {
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -5px;
+        border: 2px solid currentColor;
+        border-radius: 50%;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.3s ease;
+      }
+    }
+    
+    &:hover .timeline-icon::before {
+      opacity: 0.3;
+      transform: scale(1.2);
+    }
+    
+    // Content fade-in animation
+    .timeline-content {
+      &:hover {
+        .category-badge {
+          transform: translateY(-2px);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+  }
+}
