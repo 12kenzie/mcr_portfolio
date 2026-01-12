@@ -191,26 +191,6 @@ if (copyrightText && copyrightText.textContent.includes('2025')) {
 }
 
  
-// LAZY LOADING FOR IMAGES
- 
-const images = document.querySelectorAll('img[src]');
-const imageObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const img = entry.target;
-      img.style.opacity = '0';
-      img.style.transition = 'opacity 0.5s ease';
-      
-      img.addEventListener('load', () => {
-        img.style.opacity = '1';
-      });
-      
-      imageObserver.unobserve(img);
-    }
-  });
-});
-
-images.forEach(img => imageObserver.observe(img));
 
  
 // COPY EMAIL TO CLIPBOARD
